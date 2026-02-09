@@ -3,9 +3,403 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>project-100e941770665057733</title>
+    <meta name="description" content="Hatekhori School - Quality education for classes 1 to 8. Join us for a bright future.">
+    <title>Hatekhori | Nurturing Minds for Classes 1-8</title>
+    <style>
+        :root {
+            --primary-color: #1e40af;
+            --secondary-color: #3b82f6;
+            --accent-color: #fbbf24;
+            --text-dark: #111827;
+            --text-light: #4b5563;
+            --bg-light: #f9fafb;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        /* Utility Classes */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.25rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(30, 64, 175, 0.8), rgba(30, 64, 175, 0.8)), url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 1rem;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Classes Grid */
+        .classes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .class-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border-bottom: 4px solid transparent;
+        }
+
+        .class-card:hover {
+            transform: translateY(-5px);
+            border-bottom-color: var(--accent-color);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+
+        .class-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Features */
+        .features {
+            background-color: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .feature-item i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            margin-bottom: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                margin-top: 1rem;
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .container {
+                padding: 3rem 0;
+            }
+
+            .hero {
+                height: 60vh;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-content h1 {
+                font-size: 4.5rem;
+            }
+        }
+
+        /* Accessibility: Focus States */
+        a:focus, button:focus {
+            outline: 3px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
+    </style>
 </head>
 <body>
-    <!-- Blank white page -->
+
+    <header role="banner">
+        <nav aria-label="Main Navigation">
+            <div class="logo">Hatekhori</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#admissions">Admissions</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Unlock Your Child's Potential</h1>
+                <p>Welcome to Hatekhori School, providing excellence in education from Class 1 to 8. We nurture curiosity, foster character, and build futures.</p>
+                <div class="hero-btns">
+                    <a href="#admissions" class="btn btn-primary">Join Our School</a>
+                    <a href="#about" class="btn" style="color: white; border: 1px solid white; margin-left: 10px;">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="container">
+            <div class="section-title">
+                <h2>About Hatekhori</h2>
+                <p style="max-width: 800px; margin: 0 auto; color: var(--text-light);">Hatekhori is more than just a school; it's a foundation for lifelong learning. Established with the vision of providing holistic education, we cater to students from Grade 1 through Grade 8, ensuring a seamless transition through the formative years of childhood development.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h3>Experienced Faculty</h3>
+                    <p>Our teachers are dedicated professionals committed to individual student growth.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Modern Curriculum</h3>
+                    <p>Blending traditional values with modern pedagogical approaches for a balanced education.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Safe Environment</h3>
+                    <p>A secure and nurturing campus designed for safe learning and play.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programs Section -->
+        <section id="programs" style="background-color: #f3f4f6;">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Educational Programs</h2>
+                    <p>Comprehensive learning pathways for every stage of development.</p>
+                </div>
+                
+                <div class="classes-grid">
+                    <div class="class-card">
+                        <h3>Primary Years (1-5)</h3>
+                        <p>Focusing on core literacy, numeracy, and social skills in a creative environment. We build the base for critical thinking and inquiry.</p>
+                    </div>
+                    <div class="class-card">
+                        <h3>Middle School (6-8)</h3>
+                        <p>Transitioning to deeper academic disciplines, self-discovery, and leadership skills to prepare students for high school challenges.</p>
+                    </div>
+                    <div class="class-card">
+                        <h3>Extracurriculars</h3>
+                        <p>From arts and music to physical education, we ensure every child finds their passion beyond the classroom.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admission/CTA Section -->
+        <section id="admissions" class="container" style="text-align: center;">
+            <div style="background-color: var(--primary-color); color: white; padding: 4rem 2rem; border-radius: 1.5rem;">
+                <h2 style="margin-bottom: 1.5rem; font-size: 2.5rem;">Admissions are Open</h2>
+                <p style="margin-bottom: 2rem; font-size: 1.1rem; opacity: 0.9;">Start your child's journey at Hatekhori today. We are currently accepting applications for the upcoming session.</p>
+                <a href="#contact" class="btn btn-primary" style="background-color: var(--accent-color); color: var(--text-dark);">Apply Now</a>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Have questions? We're here to help.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+                <div>
+                    <h3>Contact Information</h3>
+                    <p style="margin-top: 1rem;"><strong>Address:</strong> 123 Education Lane, Learning City</p>
+                    <p><strong>Phone:</strong> +880 1234-567890</p>
+                    <p><strong>Email:</strong> info@hatekhori.edu</p>
+                </div>
+                <form aria-label="Contact form" style="display: flex; flex-direction: column; gap: 1rem;">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" style="padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.5rem;" required>
+                    
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" style="padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.5rem;" required>
+                    
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" style="padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.5rem;" required></textarea>
+                    
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="container" style="padding: 0;">
+            <div class="footer-content">
+                <div class="logo" style="color: white; margin-bottom: 1rem;">Hatekhori</div>
+                <p style="color: #9ca3af; margin-bottom: 1.5rem;">Empowering the next generation with quality education and moral values.</p>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="currentYear"></span> Hatekhori School. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Simple smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
